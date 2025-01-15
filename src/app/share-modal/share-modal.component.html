@@ -1,0 +1,33 @@
+<div class="share-modal">
+  <div class="header">
+    <div class="title">Teilen</div>
+    <button class="close-button" (click)="closeModal()">X</button>
+  </div>
+  <div class="separator"></div>
+  <input
+    type="text"
+    class="search-box"
+    placeholder="Suchen"
+    [(ngModel)]="searchQuery"
+    (input)="filterUsers()"
+  />
+  <div class="user-list">
+    <div
+      class="user-card"
+      *ngFor="let user of filteredUsers"
+      (click)="selectUser(user)"
+      [class.selected]="selectedUsers.includes(user)"
+    >
+      <img [src]="user.image" alt="User Image" class="user-image" />
+      <span class="user-name">{{ user.name }}</span>
+    </div>
+  </div>
+  <div class="footer">
+    <textarea
+      class="message-box"
+      placeholder="Gib eine Nachricht ein ..."
+      [(ngModel)]="message"
+    ></textarea>
+    <button class="send-button" (click)="sendMessages()">Separat senden</button>
+  </div>
+</div>

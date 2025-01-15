@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ShareModalComponent } from './share-modal/share-modal.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true, // Mark this as standalone
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  imports: [ShareModalComponent] // Import other standalone components here
 })
 export class AppComponent {
-  title = 'shareModalApp';
+  title = 'ShareModalApp';
 }
